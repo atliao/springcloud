@@ -18,6 +18,8 @@ feign:
     enabled: true
     #enabled: false
 
+
+
 #此处生效需要关闭上面的enable
 ribbon:
   #建立连接所有时间
