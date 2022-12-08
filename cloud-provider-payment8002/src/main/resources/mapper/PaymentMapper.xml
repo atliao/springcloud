@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.la.springcloud.mapper.PaymentMapper">
+
+    <!--int createPayment(Payment payment);-->
+    <insert id="createPayment" parameterType="payment" useGeneratedKeys="true" keyProperty="id">
+        insert into payment(serial) values(#{serial});
+    </insert>
+
+    <!--Payment getPaymentById(@Param("id") Long id);-->
+    <resultMap id="getPayment" type="com.la.springcloud.entities.Payment">
+        <!--column为数据库中的字段名，property为对象中的属性名-->
+        <id column="id" property="id" jdbcType="BIGINT"></id>
+        <id column="serial" property="serial" jdbcType="VARCHAR"></id>
+    </resultMap>
+    <select id="getPaymentById" parameterType="Long" resultMap="getPayment">
+        select * from payment where id=#{id};
+    </select>
+</mapper>

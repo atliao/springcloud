@@ -1,0 +1,14 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-consumer-order
+  cloud:
+    #注册到zookeeper地址
+    zookeeper:
+      #这里在windows/system32/drivers/etc/hosts文件中配置了zookeeper的地址，可以减少阻塞，快速连接
+      #192.168.159.128	zk1
+      #192.168.159.129	zk2
+      #192.168.159.130	zk3
+      connect-string: zk1,zk2,zk3

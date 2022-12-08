@@ -1,0 +1,26 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-consumer-feign-hystrix-order
+
+eureka:
+  client:
+    #不注入eureka，表示只是一个客户端，不被他人调用，但可以从服务中心拉取信息
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka, http://eureka7002.com:7002/eureka
+
+feign:
+  #客户端开启hystrix服务降级功能
+  hystrix:
+    enabled: true
+    #enabled: false
+
+#此处生效需要关闭上面的enable
+ribbon:
+  #建立连接所有时间
+  ConnectTimeout: 5000
+  #建立连接后，从服务其读取可用资源的时间
+  ReadTimeout: 5000

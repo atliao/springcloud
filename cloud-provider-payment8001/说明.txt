@@ -1,0 +1,5 @@
+微服务订单提供模块
+
+使用eureka进行服务中心注册，上传信息
+
+DiscoveryClient：发现服务注册中心上的各微服务的信息，主启动类要加上@EnableDiscoveryClient注解

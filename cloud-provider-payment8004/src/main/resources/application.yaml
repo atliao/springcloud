@@ -1,0 +1,24 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    name: cloud-payment-service
+  cloud:
+    #zookeeper连接地址
+    zookeeper:
+      #这里在windows/system32/drivers/etc/hosts文件中配置了zookeeper的地址，可以减少阻塞，快速连接
+      #192.168.159.128	zk1
+      #192.168.159.129	zk2
+      #192.168.159.130	zk3
+      connect-string: zk1,zk2,zk3
+
+
+#监控功能
+management:
+  endpoints:
+    #enabled-by-default: false #默认关闭所有监控端点
+    enabled-by-default: true #默认开启所有监控端点
+    web:
+      exposure:
+        include: '*' #以web方式暴露所有监控端点

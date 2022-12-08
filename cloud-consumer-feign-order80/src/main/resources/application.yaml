@@ -1,0 +1,21 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    #不注入eureka，表示只是一个客户端，不被他人调用，但可以从服务中心拉取信息
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka, http://eureka7002.com:7002/eureka
+
+#设置feign客户端的超时时间（ OpenFeign 默认支持 Ribbon ）
+ribbon:
+  #建立连接所有时间
+  ConnectTimeout: 5000
+  #建立连接后，从服务其读取可用资源的时间
+  ReadTimeout: 5000
+
+logging:
+  level:
+    #feign日志以什么级别监控哪个接口
+    com.la.springcloud.service.PaymentFeignService: debug

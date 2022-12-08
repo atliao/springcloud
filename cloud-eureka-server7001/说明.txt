@@ -1,0 +1,4 @@
+做集群，在C:\Windows\System32\drivers\etc\host 配置文件中，配置地址：
+    127.0.0.1 eureka7001.com
+    127.0.0.1 eureka7002.com
+配置完成后，在cmd中 ipconfig /flushdns 刷新地址

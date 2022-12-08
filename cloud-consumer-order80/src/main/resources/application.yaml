@@ -1,0 +1,32 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    # 表示将自己注册进EurekaServer默认为true
+    register-with-eureka: true
+    # 表示可以从Eureka抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      #单机版
+      #defaultZone: http://localhost:7001/eureka
+      #集群版
+      defaultZone: http://eureka7001.com:7001/eureka, http://eureka7002.com:7002/eureka
+  instance:
+    #更改在eureka上的主机名
+    instance-id: order80
+    #访问路径可以显示ip地址
+    prefer-ip-address: true
+
+#监控功能
+management:
+  endpoints:
+    #enabled-by-default: false #默认关闭所有监控端点
+    enabled-by-default: true #默认开启所有监控端点
+    web:
+      exposure:
+        include: '*' #以web方式暴露所有监控端点
+
+spring:
+  application:
+    name: cloud-order-service
