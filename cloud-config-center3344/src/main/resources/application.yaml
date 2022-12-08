@@ -8,12 +8,15 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:zzyybs/springcloud-config.git #GitHub上面的git仓库名字
+          uri: https://github.com/atliao/springcloud-config.git  #GitHub上面的git仓库名字 这里可以写https地址跟ssh地址，https地址需要配置username和password
+          username: atliao
+          password: liao15184335457
+          default-label: main #新建的github分支已经默认为main，所以此处需指定 spring.cloud.config.server.git.default-label=main
           ####搜索目录
           search-paths:
             - springcloud-config
       ####读取分支
-      label: master
+      label: main   # 以前是master,现在是叫main
 
 
 #服务注册到eureka地址
