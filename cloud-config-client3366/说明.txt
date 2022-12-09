@@ -1,0 +1,17 @@
+配置中心客户端
+
+application.yaml是用户级资源配置项
+bootstrap.yaml是系统级，优先级更高
+
+新配置文件
+    bootstrap.yaml:
+
+动态刷新功能：
+    1.引入acuator监控
+    2.修改yml暴露监控端口
+    3.业务类上添加@RefreshScope注解
+    4.使用post请求，刷新一下：http://localhost:3355/actuator/refresh
+
+    避免服务重启
+
+    但仍然是手动刷新，通过消息总线，可以一次通知所有客户端刷新

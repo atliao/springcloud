@@ -11,12 +11,26 @@ spring:
           uri: https://github.com/atliao/springcloud-config.git  #GitHub上面的git仓库名字 这里可以写https地址跟ssh地址，https地址需要配置username和password
           username: atliao
           password: liao15184335457
-          default-label: main #新建的github分支已经默认为main，所以此处需指定 spring.cloud.config.server.git.default-label=main
+          default-label: master  #在不指定读取分支的情况下，默认读master
           ####搜索目录
           search-paths:
             - springcloud-config
       ####读取分支
-      label: main   # 以前是master,现在是叫main
+      label: master   #github更新后分支已经默认为main，但这里好像不影响
+
+#rabbitmq相关配置
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest
+
+##rabbitmq相关配置,暴露bus刷新配置的端点
+management:
+  endpoints: #暴露bus刷新配置的端点
+    web:
+      exposure:
+        include: 'bus-refresh'
 
 
 #服务注册到eureka地址
@@ -24,5 +38,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka, http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: configCenter3344
 
 
