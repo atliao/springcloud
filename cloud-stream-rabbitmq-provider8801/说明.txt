@@ -1,0 +1,3 @@
+Stream消息发送者
+    此时要写的代码，要注意是和MQ组件交互，而不service去与数据库做交互
+        基于SpringCloudStream，然后做output指定通道，开启交互绑定器，再和中间件进行交互

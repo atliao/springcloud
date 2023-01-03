@@ -145,5 +145,10 @@ springCloud
                1.利用消息总线触发一个客户端/bus/refresh，而刷新所有客户端的配置
                2.利用消息总线触发一个服务端ConfigServer的/bus/refresh端点，而刷新所有客户端的配置(更合适)
             在config服务端和客户端都需要添加消息总线支持，添加rabbitmq的依赖，并在配置文件中设置
+                全部通知：向ConfigServer发送一个/actuator/bus-refresh请求，刷新所有client的配置参数
+                定点通知：发送一个/actuator/bus-refresh/{destination}请求(如/cloud-config-client:3355)，刷新指定client的配置参数
 
+    七、消息驱动
+
+        Stream：一种适配器，可以整合不同的消息中间件（RabbitMQ、ActiveMQ、RocketMQ、Kafka），屏蔽底层消息件的差异，统一消息编程模型
 
