@@ -33,7 +33,7 @@ public class OrderPaymentController {
     @GetMapping("/consumer/hystrix/timeout/{id}")
     //hystrxi处理，服务出问题时（包括超时和出错），转接到另一个兜底服务
     /*@HystrixCommand(fallbackMethod = "consumerInfo_TimeoutHandler", commandProperties = {
-            //3秒内为正常，否则转向另一个服务
+            //5秒内为正常，否则转向另一个服务
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")
     })*/
     //@HystrixCommand//没有指明，则用全局的服务降级

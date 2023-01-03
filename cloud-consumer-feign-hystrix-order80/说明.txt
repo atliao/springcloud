@@ -8,7 +8,7 @@ hystrix：
 
         方式一、服务器做降级保护处理：
                 *服务方法上添加@HystrixCommond注解，并添加转接的服务
-                *主启动类要添加@@EnableCircuitBreaker注解
+                *主启动类要添加@EnableCircuitBreaker注解
 
         方式二、客户端做降级保护处理（常用）:
                 *yaml开启hystrix支持(开启后无法更改客户端等待时间，只能转接，若要更改时间还是需要配置为false同时在ribbon里配置时间）

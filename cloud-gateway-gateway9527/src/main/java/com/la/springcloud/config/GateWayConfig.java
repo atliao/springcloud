@@ -16,7 +16,7 @@ public class GateWayConfig {
     public RouteLocator routes1(RouteLocatorBuilder routeLocatorBuilder){
         RouteLocatorBuilder.Builder routes = routeLocatorBuilder.routes();
         routes.route("path_route_la1",
-                r -> r.path("/guonei").uri("http://news.baidu.com/guonei")).build();
+                r -> r.path("/news").uri("http://news.baidu.com")).build();
         return routes.build();
     }
 
